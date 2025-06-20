@@ -62,26 +62,19 @@
       }
       responseDiv.textContent = "Chargement...";
       try {
-        const res = await fetch("https://api.openai.com/v1/chat/completions", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization": "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"
-          },
-          body: JSON.stringify({
-            model: "gpt-3.5-turbo",
-            messages: [{ role: "user", content: question }],
-            temperature: 0.7
-          })
-        });
-        if (!res.ok) throw new Error("Erreur API : " + res.status);
-        const data = await res.json();
-        const answer = data.choices[0].message.content;
-        responseDiv.textContent = answer;
-      } catch (error) {
-        responseDiv.textContent = "Erreur : " + error.message;
-      }
-    });
-  </script>
-</body>
-</html>
+      ?
+
+      fetch("https://api.openai.com/v1/chat/completions", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    "Authorization": "Bearer sk-TA-CLE-API-ICI"
+  },
+  body: JSON.stringify({
+    model: "gpt-3.5-turbo",
+    messages: [{ role: "user", content: "Bonjour, qui es-tu ?" }]
+  })
+})
+.then(r => r.json())
+.then(console.log)
+.catch(console.error);
